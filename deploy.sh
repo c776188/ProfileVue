@@ -8,10 +8,9 @@ npm run build
 git branch -D gh-pages
 git push origin :gh-pages
 
-git checkout -b gh-pages
+git checkout master
 git add -f dist
 git commit -m 'deploy'
-git subtree push --prefix dist origin gh-pages
+git subtree push --prefix dist origin master
 
-git checkout master
-pause
+git checkout profileMaster
