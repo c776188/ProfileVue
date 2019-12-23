@@ -3,7 +3,12 @@
     <v-layout justify-center wrap>
       <v-flex md12>
         <material-card color="green" title="Skill" text="Here is a subtitle for this table">
-          <v-data-table :headers="headers" :items="items" hide-actions>
+          <v-data-table
+            :headers="skillHeaders"
+            :items="skillItems"
+            :pagination.sync="pagination"
+            hide-actions
+          >
             <template slot="headerCell" slot-scope="{ header }">
               <span
                 class="subheading font-weight-light text-success text--darken-3"
@@ -14,7 +19,6 @@
               <td>{{ item.name }}</td>
               <td>{{ item.proficiency }}</td>
               <td>{{ item.experience }}</td>
-              <!-- <td class="text-xs-right">{{ item.salary }}</td> -->
             </template>
           </v-data-table>
         </material-card>
@@ -24,10 +28,15 @@
           color="green"
           flat
           full-width
-          title="Table on Plain Background"
+          title="Frame"
           text="Here is a subtitle for this table"
         >
-          <v-data-table :headers="headers" :items="items.slice(0, 7)" hide-actions>
+          <v-data-table
+            :headers="frameHeaders"
+            :items="frameItems"
+            :pagination.sync="pagination"
+            hide-actions
+          >
             <template slot="headerCell" slot-scope="{ header }">
               <span class="subheading font-weight-light text--darken-3" v-text="header.text" />
             </template>
@@ -35,7 +44,6 @@
               <td>{{ item.name }}</td>
               <td>{{ item.proficiency }}</td>
               <td>{{ item.experience }}</td>
-              <!-- <td class="text-xs-right">{{ item.salary }}</td> -->
             </template>
           </v-data-table>
         </material-card>
@@ -45,69 +53,89 @@
 </template>
 
 <script>
+// https://jsfiddle.net/g5jykkrn/2/
 export default {
-  data: () => ({
-    headers: [
-      {
-        sortable: false,
-        text: "Skill Name",
-        value: "name"
+  data() {
+    return {
+      pagination: {
+        sortBy: "experience",
+        descending: true
       },
-      {
-        sortable: false,
-        text: "Proficiency",
-        value: "proficiency"
-      },
-      {
-        sortable: true,
-        text: "Experience",
-        value: "experience"
-      }
-      // {
-      //   sortable: false,
-      //   text: "Salary",
-      //   value: "salary",
-      //   align: "right"
-      // }
-    ],
-    items: [
-      {
-        name: "JAVA",
-        proficiency: "Niger",
-        experience: "5"
-        // salary: "$35,738"
-      },
-      {
-        name: "PHP",
-        proficiency: "Curaçao",
-        experience: "3"
-        // salary: "$23,738"
-      },
-      {
-        name: "C",
-        proficiency: "Netherlands",
-        experience: "3"
-        // salary: "$56,142"
-      },
-      {
-        name: "Golang",
-        proficiency: "Korea, South",
-        experience: "1"
-        // salary: "$38,735"
-      }
-      // {
-      //   name: "Doris Greene",
-      //   proficiency: "Malawi",
-      //   experience: "Feldkirchen in Kārnten",
-      //   // salary: "$63,542"
-      // },
-      // {
-      //   name: "Mason Porter",
-      //   proficiency: "Chile",
-      //   experience: "Gloucester",
-      //   // salary: "$78,615"
-      // }
-    ]
-  })
+      skillHeaders: [
+        {
+          sortable: false,
+          text: "Skill Name",
+          value: "name"
+        },
+        {
+          text: "Proficiency",
+          value: "proficiency"
+        },
+        {
+          text: "Experience",
+          value: "experience"
+        }
+      ],
+      frameHeaders: [
+        {
+          sortable: false,
+          text: "Frame Name",
+          value: "name"
+        },
+        {
+          text: "Proficiency",
+          value: "proficiency"
+        },
+        {
+          text: "Experience",
+          value: "experience"
+        }
+      ],
+      skillItems: [
+        {
+          name: "JAVA",
+          proficiency: "Niger",
+          experience: "5"
+        },
+        {
+          name: "PHP",
+          proficiency: "Curaçao",
+          experience: "3"
+        },
+        {
+          name: "C",
+          proficiency: "Netherlands",
+          experience: "3"
+        },
+        {
+          name: "Golang",
+          proficiency: "Korea, South",
+          experience: "1"
+        }
+      ],
+      frameItems: [
+        {
+          name: "Spring",
+          proficiency: "Niger",
+          experience: "5"
+        },
+        {
+          name: "Codeigniter",
+          proficiency: "Curaçao",
+          experience: "3"
+        },
+        {
+          name: "Laravel",
+          proficiency: "Netherlands",
+          experience: "3"
+        },
+        {
+          name: "Beego",
+          proficiency: "Korea, South",
+          experience: "1"
+        }
+      ]
+    };
+  }
 };
 </script>
