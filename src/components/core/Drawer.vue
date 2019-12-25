@@ -116,6 +116,11 @@ export default {
         to: '/notifications',
         icon: 'mdi-bell',
         text: 'Notifications'
+      },
+      {
+        to: '/test',
+        icon: 'mdi-bell',
+        text: 'Test'
       }
     ]
   }),

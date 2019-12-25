@@ -4,10 +4,13 @@
       <v-flex md12>
         <material-card color="green" title="Skill" text="Here is a subtitle for this table">
           <v-data-table
+            class="fb-table-elem"
             :headers="skillHeaders"
             :items="skillItems"
+            item-key="name"
             :pagination.sync="pagination"
             hide-actions
+            expand
           >
             <template slot="headerCell" slot-scope="{ header }">
               <span
@@ -15,35 +18,25 @@
                 v-text="header.text"
               />
             </template>
-            <template slot="items" slot-scope="{ item }">
-              <td>{{ item.name }}</td>
-              <td>{{ item.proficiency }}</td>
-              <td>{{ item.experience }}</td>
+            <template slot="items" slot-scope="props">
+              <tr @click="props.expanded = !props.expanded">
+                <td>
+                  <div class="datatable-cell-wrapper">{{ props.item.name }}</div>
+                </td>
+                <td class="text-xs-right">
+                  <div class="datatable-cell-wrapper">{{ props.item.proficiency }}</div>
+                </td>
+                <td class="text-xs-right">
+                  <div class="datatable-cell-wrapper">{{ props.item.experience }}</div>
+                </td>
+              </tr>
             </template>
-          </v-data-table>
-        </material-card>
-      </v-flex>
-      <v-flex md12>
-        <material-card
-          color="green"
-          flat
-          full-width
-          title="Frame"
-          text="Here is a subtitle for this table"
-        >
-          <v-data-table
-            :headers="frameHeaders"
-            :items="frameItems"
-            :pagination.sync="pagination"
-            hide-actions
-          >
-            <template slot="headerCell" slot-scope="{ header }">
-              <span class="subheading font-weight-light text--darken-3" v-text="header.text" />
-            </template>
-            <template slot="items" slot-scope="{ item }">
-              <td>{{ item.name }}</td>
-              <td>{{ item.proficiency }}</td>
-              <td>{{ item.experience }}</td>
+            <template slot="expand" slot-scope="props">
+              <v-card flat>
+                <v-card-text>Peek-a-boo! {{ props.item.name }}</v-card-text>
+                <v-card-text>Peek-a-boo!</v-card-text>
+                <div class="datatable-container"></div>
+              </v-card>
             </template>
           </v-data-table>
         </material-card>
@@ -57,6 +50,8 @@
 export default {
   data() {
     return {
+      expanded: [],
+      singleExpand: false,
       pagination: {
         sortBy: "experience",
         descending: true
