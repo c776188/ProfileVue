@@ -1,4 +1,9 @@
 <style>
+.frame-table {
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
 .frame-table table {
   -webkit-box-shadow: inset 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: inset 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
@@ -6,7 +11,7 @@
 }
 
 .frame-table table thead {
-  display: none;
+  visibility: collapse;
 }
 </style>>
 
