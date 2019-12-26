@@ -1,3 +1,15 @@
+<style>
+.frame-table table {
+  -webkit-box-shadow: inset 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: inset 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: inset 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+.frame-table table thead {
+  display: none;
+}
+</style>>
+
 <template>
   <v-container fill-height fluid grid-list-xl>
     <v-layout justify-center wrap>
@@ -23,19 +35,37 @@
                 <td>
                   <div class="datatable-cell-wrapper">{{ props.item.name }}</div>
                 </td>
-                <td class="text-xs-right">
+                <td>
                   <div class="datatable-cell-wrapper">{{ props.item.proficiency }}</div>
                 </td>
-                <td class="text-xs-right">
+                <td>
                   <div class="datatable-cell-wrapper">{{ props.item.experience }}</div>
                 </td>
               </tr>
             </template>
             <template slot="expand" slot-scope="props">
               <v-card flat>
-                <v-card-text>Peek-a-boo! {{ props.item.name }}</v-card-text>
-                <v-card-text>Peek-a-boo!</v-card-text>
-                <div class="datatable-container"></div>
+                <v-data-table
+                  class="fb-table-elem frame-table"
+                  :headers="skillHeaders"
+                  :items="props.item.frame"
+                  item-key="name"
+                  :pagination.sync="pagination"
+                  hide-actions
+                >
+                  <template slot="items" slot-scope="props">
+                    <td>
+                      <div class="datatable-cell-wrapper">{{ props.item.name }}</div>
+                    </td>
+                    <td>
+                      <div class="datatable-cell-wrapper">{{ props.item.proficiency }}</div>
+                    </td>
+                    <td>
+                      <div class="datatable-cell-wrapper">{{ props.item.experience }}</div>
+                    </td>
+                  </template>
+                  <div class="datatable-container"></div>
+                </v-data-table>
               </v-card>
             </template>
           </v-data-table>
@@ -46,7 +76,6 @@
 </template>
 
 <script>
-// https://jsfiddle.net/g5jykkrn/2/
 export default {
   data() {
     return {
@@ -71,31 +100,35 @@ export default {
           value: "experience"
         }
       ],
-      frameHeaders: [
-        {
-          sortable: false,
-          text: "Frame Name",
-          value: "name"
-        },
-        {
-          text: "Proficiency",
-          value: "proficiency"
-        },
-        {
-          text: "Experience",
-          value: "experience"
-        }
-      ],
       skillItems: [
         {
           name: "JAVA",
           proficiency: "Niger",
-          experience: "5"
+          experience: "5",
+          frame: [
+            {
+              name: "Spring",
+              proficiency: "Niger",
+              experience: "5"
+            }
+          ]
         },
         {
           name: "PHP",
           proficiency: "Curaçao",
-          experience: "3"
+          experience: "3",
+          frame: [
+            {
+              name: "Codeigniter",
+              proficiency: "Curaçao",
+              experience: "3"
+            },
+            {
+              name: "Laravel",
+              proficiency: "Netherlands",
+              experience: "3"
+            }
+          ]
         },
         {
           name: "C",
@@ -105,29 +138,14 @@ export default {
         {
           name: "Golang",
           proficiency: "Korea, South",
-          experience: "1"
-        }
-      ],
-      frameItems: [
-        {
-          name: "Spring",
-          proficiency: "Niger",
-          experience: "5"
-        },
-        {
-          name: "Codeigniter",
-          proficiency: "Curaçao",
-          experience: "3"
-        },
-        {
-          name: "Laravel",
-          proficiency: "Netherlands",
-          experience: "3"
-        },
-        {
-          name: "Beego",
-          proficiency: "Korea, South",
-          experience: "1"
+          experience: "1",
+          frame: [
+            {
+              name: "Beego",
+              proficiency: "Korea, South",
+              experience: "1"
+            }
+          ]
         }
       ]
     };
