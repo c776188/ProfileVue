@@ -36,7 +36,9 @@
                   <div class="datatable-cell-wrapper">{{ props.item.name }}</div>
                 </td>
                 <td>
-                  <div class="datatable-cell-wrapper">{{ props.item.proficiency }}</div>
+                  <v-chip :color="getColor(props.item.proficiency)" dark>
+                    <div class="datatable-cell-wrapper">{{ props.item.proficiency }}</div>
+                  </v-chip>
                 </td>
                 <td>
                   <div class="datatable-cell-wrapper">{{ props.item.experience }}</div>
@@ -103,7 +105,7 @@ export default {
       skillItems: [
         {
           name: "JAVA",
-          proficiency: "Niger",
+          proficiency: "5",
           experience: "5",
           frame: [
             {
@@ -115,7 +117,7 @@ export default {
         },
         {
           name: "PHP",
-          proficiency: "Curaçao",
+          proficiency: "4",
           experience: "3",
           frame: [
             {
@@ -132,12 +134,12 @@ export default {
         },
         {
           name: "C",
-          proficiency: "Netherlands",
+          proficiency: "2",
           experience: "3"
         },
         {
           name: "Golang",
-          proficiency: "Korea, South",
+          proficiency: "3",
           experience: "1",
           frame: [
             {
@@ -149,6 +151,13 @@ export default {
         }
       ]
     };
+  },
+  methods: {
+    getColor: function(proficiency) {
+      if (proficiency > 4) return "red";
+      else if (proficiency > 2) return "orange";
+      else return "green";
+    }
   }
 };
 </script>
