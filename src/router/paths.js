@@ -14,8 +14,8 @@ export default [{
         view: 'UserProfile'
     },
     {
-        path: '/table-list',
-        name: 'Table List',
+        path: '/skill',
+        name: 'Skill',
         view: 'TableList'
     },
     {

@@ -45,31 +45,6 @@
                 </td>
               </tr>
             </template>
-            <template slot="expand" slot-scope="props">
-              <v-card flat>
-                <v-data-table
-                  class="fb-table-elem frame-table"
-                  :headers="skillHeaders"
-                  :items="props.item.frame"
-                  item-key="name"
-                  :pagination.sync="pagination"
-                  hide-actions
-                >
-                  <template slot="items" slot-scope="props">
-                    <td>
-                      <div class="datatable-cell-wrapper">{{ props.item.name }}</div>
-                    </td>
-                    <td>
-                      <div class="datatable-cell-wrapper">{{ props.item.proficiency }}</div>
-                    </td>
-                    <td>
-                      <div class="datatable-cell-wrapper">{{ props.item.experience }}</div>
-                    </td>
-                  </template>
-                  <div class="datatable-container"></div>
-                </v-data-table>
-              </v-card>
-            </template>
           </v-data-table>
         </material-card>
       </v-flex>
@@ -84,7 +59,8 @@ export default {
       expanded: [],
       singleExpand: false,
       pagination: {
-        sortBy: "experience",
+        rowsPerPage: -1,
+        sortBy: "proficiency",
         descending: true
       },
       skillHeaders: [
@@ -105,57 +81,71 @@ export default {
       skillItems: [
         {
           name: "JAVA",
-          proficiency: "5",
-          experience: "5",
-          frame: [
-            {
-              name: "Spring",
-              proficiency: "Niger",
-              experience: "5"
-            }
-          ]
+          proficiency: "☆☆☆☆☆",
+          experience: "5"
+        },
+        {
+          name: "Spring",
+          proficiency: "☆☆☆☆",
+          experience: "1"
         },
         {
           name: "PHP",
-          proficiency: "4",
-          experience: "3",
-          frame: [
-            {
-              name: "Codeigniter",
-              proficiency: "Curaçao",
-              experience: "3"
-            },
-            {
-              name: "Laravel",
-              proficiency: "Netherlands",
-              experience: "3"
-            }
-          ]
+          proficiency: "☆☆☆☆☆",
+          experience: "4"
+        },
+        {
+          name: "Codeigniter",
+          proficiency: "☆☆☆☆",
+          experience: "2"
+        },
+        {
+          name: "Laravel",
+          proficiency: "☆☆☆",
+          experience: "1"
         },
         {
           name: "C",
-          proficiency: "2",
+          proficiency: "☆☆",
           experience: "3"
         },
         {
+          name: "Unity",
+          proficiency: "☆☆☆",
+          experience: "1"
+        },
+        {
           name: "Golang",
-          proficiency: "3",
-          experience: "1",
-          frame: [
-            {
-              name: "Beego",
-              proficiency: "Korea, South",
-              experience: "1"
-            }
-          ]
+          proficiency: "☆☆☆",
+          experience: "1"
+        },
+        {
+          name: "Beego",
+          proficiency: "☆☆",
+          experience: "1"
+        },
+        {
+          name: "Javascript",
+          proficiency: "☆☆☆☆☆",
+          experience: "4"
+        },
+        {
+          name: "VueJs",
+          proficiency: "☆☆☆",
+          experience: "2"
+        },
+        {
+          name: "Android",
+          proficiency: "☆☆",
+          experience: "2"
         }
       ]
     };
   },
   methods: {
     getColor: function(proficiency) {
-      if (proficiency > 4) return "red";
-      else if (proficiency > 2) return "orange";
+      if (proficiency.length > 4) return "red";
+      else if (proficiency.length > 2) return "orange";
       else return "green";
     }
   }
