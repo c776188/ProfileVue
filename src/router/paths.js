@@ -10,7 +10,7 @@ export default [{
     },
     {
         path: '/user-profile',
-        name: 'User Profile',
+        name: 'Profile',
         view: 'UserProfile'
     },
     {
@@ -40,8 +40,8 @@ export default [{
         view: 'Upgrade'
     },
     {
-        path: '/test',
-        name: 'Test',
-        view: 'Test'
+        path: '/course',
+        name: 'Course',
+        view: 'Course'
     }
 ]

@@ -45,6 +45,7 @@
 <script>
 // Utilities
 import { mapMutations, mapState } from "vuex";
+import { mdiShoePrint } from '@mdi/js';
 
 export default {
   props: {
@@ -82,9 +83,14 @@ export default {
         text: "Notifications"
       },
       {
-        to: "/test",
-        icon: "mdi-bell",
-        text: "Test"
+        to: "/course",
+        icon: "mdi-shoe-prints",
+        text: "Course"
+      },
+      {
+        to: "/portfolio",
+        icon: "mdi-book-open",
+        text: "Portfolio"
       }
     ]
   }),
