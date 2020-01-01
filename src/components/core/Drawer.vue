@@ -64,7 +64,7 @@ export default {
       {
         to: "/user-profile",
         icon: "mdi-account",
-        text: "User Profile"
+        text: "Profile"
       },
       {
         to: "/skill",
