@@ -9,30 +9,15 @@
     mobile-break-point="991"
     width="260"
   >
-    <v-img
-      :src="image"
-      height="100%"
-    >
-      <v-layout
-        class="fill-height"
-        tag="v-list"
-        column
-      >
+    <v-img :src="image" height="100%">
+      <v-layout class="fill-height" tag="v-list" column>
         <v-list-tile avatar>
-          <v-list-tile-avatar
-            color="white"
-          >
-            <v-img
-              :src="logo"
-              height="34"
-              contain
-            />
+          <v-list-tile-avatar color="white">
+            <v-img :src="logo" height="34" contain />
           </v-list-tile-avatar>
-          <v-list-tile-title class="title">
-            林峻毅
-          </v-list-tile-title>
+          <v-list-tile-title class="title">林峻毅</v-list-tile-title>
         </v-list-tile>
-        <v-divider/>
+        <v-divider />
         <v-list-tile
           v-for="(link, i) in links"
           :key="i"
@@ -44,22 +29,14 @@
           <v-list-tile-action>
             <v-icon>{{ link.icon }}</v-icon>
           </v-list-tile-action>
-          <v-list-tile-title
-            v-text="link.text"
-          />
+          <v-list-tile-title v-text="link.text" />
         </v-list-tile>
-        <v-list-tile
-          active-class="success"
-          class="v-list-item v-list__tile--buy"
-          to="/upgrade"
-        >
+        <!-- <v-list-tile active-class="success" class="v-list-item v-list__tile--buy" to="/upgrade">
           <v-list-tile-action>
             <v-icon>mdi-package-up</v-icon>
           </v-list-tile-action>
-          <v-list-tile-title class="font-weight-light">
-            Upgrade To PRO
-          </v-list-tile-title>
-        </v-list-tile>
+          <v-list-tile-title class="font-weight-light">Upgrade To PRO</v-list-tile-title>
+        </v-list-tile>-->
       </v-layout>
     </v-img>
   </v-navigation-drawer>
@@ -67,10 +44,7 @@
 
 <script>
 // Utilities
-import {
-  mapMutations,
-  mapState
-} from 'vuex'
+import { mapMutations, mapState } from "vuex";
 
 export default {
   props: {
@@ -80,80 +54,70 @@ export default {
     }
   },
   data: () => ({
-    logo: 'favicon.ico',
+    logo: "favicon.ico",
     links: [
       {
-        to: '/',
-        icon: 'mdi-view-dashboard',
-        text: 'Dashboard'
+        to: "/",
+        icon: "mdi-view-dashboard",
+        text: "Dashboard"
       },
       {
-        to: '/user-profile',
-        icon: 'mdi-account',
-        text: 'User Profile'
+        to: "/user-profile",
+        icon: "mdi-account",
+        text: "User Profile"
       },
       {
-        to: '/skill',
-        icon: 'mdi-clipboard-outline',
-        text: 'Skill'
+        to: "/skill",
+        icon: "mdi-clipboard-outline",
+        text: "Skill"
       },
       {
-        to: '/typography',
-        icon: 'mdi-format-font',
-        text: 'Typography'
+        to: "/typography",
+        icon: "mdi-format-font",
+        text: "Typography"
       },
       {
-        to: '/icons',
-        icon: 'mdi-chart-bubble',
-        text: 'Icons'
+        to: "/notifications",
+        icon: "mdi-bell",
+        text: "Notifications"
       },
       {
-        to: '/maps',
-        icon: 'mdi-map-marker',
-        text: 'Maps'
-      },
-      {
-        to: '/notifications',
-        icon: 'mdi-bell',
-        text: 'Notifications'
-      },
-      {
-        to: '/test',
-        icon: 'mdi-bell',
-        text: 'Test'
+        to: "/test",
+        icon: "mdi-bell",
+        text: "Test"
       }
     ]
   }),
   computed: {
-    ...mapState('app', ['image', 'color']),
+    ...mapState("app", ["image", "color"]),
     inputValue: {
-      get () {
-        return this.$store.state.app.drawer
+      get() {
+        return this.$store.state.app.drawer;
       },
-      set (val) {
-        this.setDrawer(val)
+      set(val) {
+        this.setDrawer(val);
       }
     },
-    items () {
-      return this.$t('Layout.View.items')
+    items() {
+      return this.$t("Layout.View.items");
     }
   },
 
   methods: {
-    ...mapMutations('app', ['setDrawer', 'toggleDrawer'])
+    ...mapMutations("app", ["setDrawer", "toggleDrawer"])
   }
-}
+};
 </script>
 
 <style lang="scss">
-  #app-drawer {
-    .v-list__tile {
-      border-radius: 4px;
+#app-drawer {
+  .v-list__tile {
+    border-radius: 4px;
 
-      &--buy {
-        margin-top: auto;
-        margin-bottom: 17px;
-      }
+    &--buy {
+      margin-top: auto;
+      margin-bottom: 17px;
     }
   }
+}
 </style>
