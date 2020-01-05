@@ -6,6 +6,6 @@ import "@mdi/font/css/materialdesignicons.css";
 import "@fortawesome/fontawesome-free/css/all.css";
 
 Vue.use(Vuetify, {
-    iconfont: ["mdi", "fa"],
+    iconfont: "mdi",
     theme
 });
