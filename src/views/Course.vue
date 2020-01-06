@@ -1,9 +1,4 @@
 <style>
-body {
-  background: #111;
-  font-size: 18px;
-  color: #fff;
-}
 h1 {
   font-size: 2em;
   text-align: center;
@@ -11,7 +6,6 @@ h1 {
   padding: 0;
 }
 .container {
-  background: #222;
   width: 80%;
   margin: 0 auto;
   overflow: auto;
@@ -30,9 +24,11 @@ h1 {
 }
 .left-content p {
   margin: 150px 0 0;
+  opacity: 1;
 }
 .right-content p {
   margin: 80px 0 150px;
+  opacity: 1;
 }
 .container p {
   -webkit-transition: all 0.7s ease-in-out;
@@ -42,10 +38,12 @@ h1 {
   transition: all 0.7s ease-in-out;
 }
 .left-content .more-padding {
-  padding-right: 100px;
+  padding-right: 200px;
+  opacity: 0;
 }
 .right-content .more-padding {
-  padding-left: 100px;
+  padding-left: 200px;
+  opacity: 0;
 }
 </style>
 <template>
