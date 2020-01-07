@@ -22,20 +22,20 @@ h1 {
   border-right: 5px dotted #666;
   text-align: right;
 }
-.left-content p {
-  margin: 150px 0 0;
+.left-content div {
+  margin: 0 0 150px;
   opacity: 1;
 }
-.right-content p {
-  margin: 80px 0 150px;
+.right-content div {
+  margin: 20px 0 150px;
   opacity: 1;
 }
-.container p {
-  -webkit-transition: all 0.7s ease-in-out;
-  -moz-transition: all 0.7 ease-in-out;
-  -ms-transition: all 0.7s ease-in-out;
-  -o-transition: all 0.7s ease-in-out;
-  transition: all 0.7s ease-in-out;
+.container div {
+  -webkit-transition: all 1s ease-in-out;
+  -moz-transition: all 1 ease-in-out;
+  -ms-transition: all 1s ease-in-out;
+  -o-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
 }
 .left-content .more-padding {
   padding-right: 200px;
@@ -50,35 +50,31 @@ h1 {
   <div class="container">
     <h1>Simple Animated Timeline Scroller</h1>
     <div class="left-content">
-      <p>Content 01</p>
-      <p>Content 02</p>
-      <p>Content 03</p>
-      <p>Content 04</p>
-      <p>Content 05</p>
-      <p>Content 06</p>
-      <p>Content 07</p>
-      <p>Content 08</p>
-      <p>Content 09</p>
-      <p>Content 10</p>
+      <course-content
+        v-for="(item, key) in leftData"
+        :key="key"
+        :message="item.message"
+        :year="item.year"
+      ></course-content>
     </div>
     <div class="right-content">
-      <p>Content 01</p>
-      <p>Content 02</p>
-      <p>Content 03</p>
-      <p>Content 04</p>
-      <p>Content 05</p>
-      <p>Content 06</p>
-      <p>Content 07</p>
-      <p>Content 08</p>
-      <p>Content 09</p>
-      <p>Content 10</p>
+      <course-content v-for="(item, key) in rightData" :key="key" :message="item.message"></course-content>
     </div>
   </div>
 </template>
 
 <script>
+import Vue from "vue";
 import jQuery from "jquery";
 let $ = jQuery;
+
+Vue.component("course-content", {
+  template: `<div>
+              <p>{{year}}</p>
+              <p>{{message}}</p>
+            </div>`,
+  props: ["year", "message"]
+});
 
 export default {
   methods: {
@@ -88,7 +84,7 @@ export default {
   },
   mounted: function() {
     $(window).scroll(function() {
-      $(".container p").each(function() {
+      $(".container div").each(function() {
         var scrollTop = $(window).scrollTop(),
           elementOffset = $(this).offset().top,
           distance = elementOffset - scrollTop,
@@ -106,87 +102,48 @@ export default {
   },
   data() {
     return {
-      headers: [
+      leftData: [
         {
-          text: "Dessert (100g serving)",
-          align: "left",
-          sortable: false,
-          value: "name"
+          year: 2019,
+          message: "aa"
         },
-        { text: "Calories", value: "calories" },
-        { text: "Fat (g)", value: "fat" },
-        { text: "Carbs (g)", value: "carbs" },
-        { text: "Protein (g)", value: "protein" },
-        { text: "Sodium (mg)", value: "sodium" },
-        { text: "Calcium (%)", value: "calcium" },
-        { text: "Iron (%)", value: "iron" }
+        {
+          year: 2018,
+          message: "bb"
+        },
+        {
+          year: 2017,
+          message: "cc"
+        },
+        {
+          year: 2016,
+          message: "ee"
+        },
+        {
+          year: 2015,
+          message: "dd"
+        },
+        {
+          year: 2014,
+          message: "ff"
+        },
+        {
+          year: 2013,
+          message: "gg"
+        }
       ],
-      items: [
+      rightData: [
         {
-          value: false,
-          name: "Frozen Yogurt",
-          calories: 159,
-          fat: 6.0,
-          carbs: 24,
-          protein: 4.0,
-          sodium: 87,
-          calcium: "14%",
-          iron: "1%"
+          year: 2013,
+          message: "cc"
         },
         {
-          value: false,
-          name: "Ice cream sandwich",
-          calories: 237,
-          fat: 9.0,
-          carbs: 37,
-          protein: 4.3,
-          sodium: 129,
-          calcium: "8%",
-          iron: "1%"
+          year: 2013,
+          message: "dd"
         },
         {
-          value: false,
-          name: "Eclair",
-          calories: 262,
-          fat: 16.0,
-          carbs: 23,
-          protein: 6.0,
-          sodium: 337,
-          calcium: "6%",
-          iron: "7%"
-        },
-        {
-          value: false,
-          name: "Cupcake",
-          calories: 305,
-          fat: 3.7,
-          carbs: 67,
-          protein: 4.3,
-          sodium: 413,
-          calcium: "3%",
-          iron: "8%"
-        },
-        {
-          value: false,
-          name: "Gingerbread",
-          calories: 356,
-          fat: 16.0,
-          carbs: 49,
-          protein: 3.9,
-          sodium: 327,
-          calcium: "7%",
-          iron: "16%"
-        },
-        {
-          value: false,
-          name: "Jelly bean",
-          calories: 375,
-          fat: 0.0,
-          carbs: 94,
-          protein: 0.0,
-          sodium: 50,
-          calcium: "0%",
-          iron: "0%"
+          year: 2013,
+          message: "ee"
         }
       ]
     };
