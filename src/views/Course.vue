@@ -23,26 +23,29 @@ h1 {
   text-align: right;
 }
 .left-content div {
-  margin: 0 0 150px;
+  height: 150px;
   opacity: 1;
 }
+.right-content div:first-child {
+  margin: 60px 0 0;
+}
 .right-content div {
-  margin: 20px 0 150px;
+  height: 150px;
   opacity: 1;
 }
 .container div {
-  -webkit-transition: all 1s ease-in-out;
-  -moz-transition: all 1 ease-in-out;
-  -ms-transition: all 1s ease-in-out;
-  -o-transition: all 1s ease-in-out;
-  transition: all 1s ease-in-out;
+  -webkit-transition: all 0.7s ease-in-out;
+  -moz-transition: all 0.7 ease-in-out;
+  -ms-transition: all 0.7s ease-in-out;
+  -o-transition: all 0.7s ease-in-out;
+  transition: all 0.7s ease-in-out;
 }
 .left-content .more-padding {
-  padding-right: 200px;
+  padding-right: 100px;
   opacity: 0;
 }
 .right-content .more-padding {
-  padding-left: 200px;
+  padding-left: 100px;
   opacity: 0;
 }
 </style>
@@ -69,8 +72,8 @@ import jQuery from "jquery";
 let $ = jQuery;
 
 Vue.component("course-content", {
-  template: `<div>
-              <p>{{year}}</p>
+  template: `<div class='year'>
+              <h2>{{year}}</h2>
               <p>{{message}}</p>
             </div>`,
   props: ["year", "message"]
@@ -83,6 +86,13 @@ export default {
     }
   },
   mounted: function() {
+    // year
+    var thisYear = new Date().getFullYear();
+    for (var i = thisYear; i >= 2013; i--) {
+      this.leftData = this.leftData.concat([{ year: i }]);
+    }
+
+    // 滾軸事件
     $(window).scroll(function() {
       $(".container div").each(function() {
         var scrollTop = $(window).scrollTop(),
@@ -102,36 +112,7 @@ export default {
   },
   data() {
     return {
-      leftData: [
-        {
-          year: 2019,
-          message: "aa"
-        },
-        {
-          year: 2018,
-          message: "bb"
-        },
-        {
-          year: 2017,
-          message: "cc"
-        },
-        {
-          year: 2016,
-          message: "ee"
-        },
-        {
-          year: 2015,
-          message: "dd"
-        },
-        {
-          year: 2014,
-          message: "ff"
-        },
-        {
-          year: 2013,
-          message: "gg"
-        }
-      ],
+      leftData: [],
       rightData: [
         {
           year: 2013,
