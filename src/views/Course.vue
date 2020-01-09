@@ -4,6 +4,7 @@ h1 {
   text-align: center;
   margin: 20px 0 40px;
   padding: 0;
+  padding-right: 20%;
 }
 .container {
   width: 80%;
@@ -27,7 +28,7 @@ h1 {
   opacity: 1;
 }
 .right-content div:first-child {
-  margin: 60px 0 0;
+  margin: 40px 0 0;
 }
 .right-content div {
   height: 150px;
@@ -51,7 +52,7 @@ h1 {
 </style>
 <template>
   <div class="container">
-    <h1>Simple Animated Timeline Scroller</h1>
+    <h1>Mind Course</h1>
     <div class="left-content">
       <course-content
         v-for="(item, key) in leftData"
@@ -61,7 +62,15 @@ h1 {
       ></course-content>
     </div>
     <div class="right-content">
-      <course-content v-for="(item, key) in rightData" :key="key" :message="item.message"></course-content>
+      <div class="2019">
+        <h3>Uitox</h3>
+        <hr style="border:1 dashed #987cb9" width="80%" color="#987cb9" size="1" />
+        <ul>
+          <li>產品：ASAP 電商</li>
+          <li>框架：Codeigniter</li>
+          <li>剛進去主要是商品、賣場的管理操作功能開法與維護</li>
+        </ul>
+      </div>
     </div>
   </div>
 </template>
