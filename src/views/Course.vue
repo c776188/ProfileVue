@@ -85,13 +85,14 @@ export default {
       this.expanded.push(value);
     }
   },
-  mounted: function() {
+  created: function() {
     // year
     var thisYear = new Date().getFullYear();
     for (var i = thisYear; i >= 2013; i--) {
       this.leftData = this.leftData.concat([{ year: i }]);
     }
-
+  },
+  mounted: function() {
     // 滾軸事件
     $(window).scroll(function() {
       $(".container div").each(function() {
