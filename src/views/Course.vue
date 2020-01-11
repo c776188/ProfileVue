@@ -24,10 +24,10 @@ h1 {
   text-align: right;
 }
 .left-content div {
-  height: 150px;
+  /* height: 150px; */
   opacity: 1;
 }
-.right-content div:first-child {
+.right-content div {
   margin: 40px 0 0;
 }
 .right-content div {
@@ -62,7 +62,34 @@ h1 {
       ></course-content>
     </div>
     <div class="right-content">
-      <div class="2019">
+      <div class="Y_2020">
+        <h3>Uitox</h3>
+        <hr style="border:1 dashed #987cb9" width="80%" color="#987cb9" size="1" />
+        <ul>
+          <li>產品：ASAP 電商</li>
+          <li>技能：Codeigniter、plSQL、RabbitMQ</li>
+          <li>剛進去主要是商品、賣場的管理操作功能開法與維護</li>
+        </ul>
+      </div>
+      <div class="Y_2019">
+        <h3>采億科技</h3>
+        <hr style="border:1 dashed #987cb9" width="80%" color="#987cb9" size="1" />
+        <ul>
+          <li>產品：Fansplay </li>
+          <li>技能：Java、Spring、PHP、VueJS、MySQL、SQLite</li>
+          <li>剛進去主要是商品、賣場的管理操作功能開法與維護</li>
+        </ul>
+      </div>
+      <div class="Y_2017">
+        <h3>Uitox</h3>
+        <hr style="border:1 dashed #987cb9" width="80%" color="#987cb9" size="1" />
+        <ul>
+          <li>產品：ASAP 電商</li>
+          <li>框架：Codeigniter</li>
+          <li>剛進去主要是商品、賣場的管理操作功能開法與維護</li>
+        </ul>
+      </div>
+      <div class="Y_2016">
         <h3>Uitox</h3>
         <hr style="border:1 dashed #987cb9" width="80%" color="#987cb9" size="1" />
         <ul>
@@ -81,9 +108,8 @@ import jQuery from "jquery";
 let $ = jQuery;
 
 Vue.component("course-content", {
-  template: `<div class='year'>
-              <h2>{{year}}</h2>
-              <p>{{message}}</p>
+  template: `<div>
+              <h2 class='year'>{{year}}</h2>
             </div>`,
   props: ["year", "message"]
 });
@@ -102,6 +128,17 @@ export default {
     }
   },
   mounted: function() {
+    var leftDiv = $(".left-content div");
+
+    leftDiv.each(function() {
+      var year = $(this)
+        .children(".year")
+        .text();
+      var h = $(".right-content div.Y_" + year).height();
+      console.log(year, h);
+      $(this).css("height", h);
+    });
+
     // 滾軸事件
     $(window).scroll(function() {
       $(".container div").each(function() {
@@ -122,21 +159,7 @@ export default {
   },
   data() {
     return {
-      leftData: [],
-      rightData: [
-        {
-          year: 2013,
-          message: "cc"
-        },
-        {
-          year: 2013,
-          message: "dd"
-        },
-        {
-          year: 2013,
-          message: "ee"
-        }
-      ]
+      leftData: []
     };
   }
 };
