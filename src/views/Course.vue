@@ -77,25 +77,25 @@ h1 {
         <ul>
           <li>產品：Fansplay </li>
           <li>技能：Java、Spring、PHP、VueJS、MySQL、SQLite</li>
-          <li>剛進去主要是商品、賣場的管理操作功能開法與維護</li>
+          <li>主要開發與維護</li>
         </ul>
       </div>
       <div class="Y_2017">
-        <h3>Uitox</h3>
+        <h3>北市大 大學畢業專題</h3>
         <hr style="border:1 dashed #987cb9" width="80%" color="#987cb9" size="1" />
         <ul>
-          <li>產品：ASAP 電商</li>
-          <li>框架：Codeigniter</li>
-          <li>剛進去主要是商品、賣場的管理操作功能開法與維護</li>
+          <li>產品：結合NFC發展無所不在學習系統及其在國小自然科學之應用</li>
+          <li>技能：Unity、PHP、C#</li>
+          <li>此作品曾參加國科會競賽，並且通過第一階段; 並且也曾拿去國小做教學實驗。</li>
         </ul>
       </div>
       <div class="Y_2016">
-        <h3>Uitox</h3>
+        <h3>北市大 社群網路應用競賽</h3>
         <hr style="border:1 dashed #987cb9" width="80%" color="#987cb9" size="1" />
         <ul>
-          <li>產品：ASAP 電商</li>
-          <li>框架：Codeigniter</li>
-          <li>剛進去主要是商品、賣場的管理操作功能開法與維護</li>
+          <li>產品：Instival</li>
+          <li>技能：Heroku、HTML、PHP</li>
+          <li>與朋友參與全校性競賽，有獲得佳作</li>
         </ul>
       </div>
     </div>
