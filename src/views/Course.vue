@@ -6,7 +6,7 @@ h1 {
   padding: 0;
   padding-right: 20%;
 }
-.container {
+.course-container {
   width: 80%;
   margin: 0 auto;
   overflow: auto;
@@ -34,7 +34,7 @@ h1 {
   height: 150px;
   opacity: 1;
 }
-.container div {
+.course-container div {
   -webkit-transition: all 0.7s ease-in-out;
   -moz-transition: all 0.7 ease-in-out;
   -ms-transition: all 0.7s ease-in-out;
@@ -51,7 +51,7 @@ h1 {
 }
 </style>
 <template>
-  <div class="container">
+  <div class="course-container">
     <h1>Mind Course</h1>
     <div class="left-content">
       <course-content
@@ -141,7 +141,7 @@ export default {
 
     // 滾軸事件
     $(window).scroll(function() {
-      $(".container div").each(function() {
+      $(".course-container div").each(function() {
         var scrollTop = $(window).scrollTop(),
           elementOffset = $(this).offset().top,
           distance = elementOffset - scrollTop,

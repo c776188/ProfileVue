@@ -37,14 +37,15 @@ p {
       <v-flex xs12 md4>
         <material-card class="v-card-profile">
           <v-avatar slot="offset" class="mx-auto d-block" size="130">
-            <img src="../images/profile.png" />
+            <img src="../images/profile.jpeg" />
           </v-avatar>
           <v-card-text class="text-xs-center">
-            <h6 class="category text-gray font-weight-thin mb-3">後端工程師</h6>
+            <h6 class="category text-gray font-weight-thin mb-3">小小開發工程師</h6>
             <h4 class="card-title font-weight-light">林峻毅 (Tino)</h4>
-            <p
-              class="card-description font-weight-light"
-            >我有一年的 Spring boot 開發經驗，大學期間曾任職兩年教學助理，期許自己對於程式碼的品質、架構觀念能夠一直提升。</p>
+            <p class="card-description font-weight-light">
+              我的興趣就是解決問題，無論是困難的、奇怪的、複雜的都過來給我試試看吧！大不了我也不會而已~
+              <br />⁽⁽٩(๑˃̶͈̀ ᗨ ˂̶͈́)۶⁾⁾
+            </p>
             <v-btn color="success" round class="font-weight-light">Follow</v-btn>
           </v-card-text>
         </material-card>
